@@ -1,9 +1,9 @@
 exports.up = function (knex) {
   return knex.schema.createTable('post', (table) => {
-    table.string('id').primary();
+    table.uuid('id').primary();
     table.string('nomeUsuario').notNullable();
     table.string('avatar').notNullable();
-    table.date('dataPublicacao').notNullable();
+    table.datetime('dataPublicacao').notNullable();
     table.string('urlImagemPublicacao').notNullable();
   });
 };

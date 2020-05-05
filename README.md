@@ -36,7 +36,7 @@ npm run dev
 6 - Vá para:  
 
 ```
-http://localhost:3333/posts
+http://localhost:3333/api/v1/posts
 ```
 
 7 - Para rodar os testes:  

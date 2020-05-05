@@ -3,6 +3,9 @@ const { v4: uuidv4 } = require('uuid');
 
 const connection = require('../database/connection');
 
+const POST_TABLE = 'post';
+const LIMIT_PER_PAGE = 20;
+
 module.exports = {
   async create(request, response) {
     const { nomeUsuario, avatar, urlImagemPublicacao } = request.body;
@@ -10,7 +13,7 @@ module.exports = {
     const id = uuidv4();
     const dataPublicacao = moment().toISOString();
 
-    await connection('post').insert({
+    await connection(POST_TABLE).insert({
       id,
       nomeUsuario,
       avatar,
@@ -25,12 +28,12 @@ module.exports = {
   async list(request, response) {
     const { page = 1 } = request.query;
 
-    const [count] = await connection('post').count();
+    const [count] = await connection(POST_TABLE).count();
 
-    const posts = await connection('post')
+    const posts = await connection(POST_TABLE)
       .select('*')
-      .limit(20)
-      .offset((page - 1) * 20);
+      .limit(LIMIT_PER_PAGE)
+      .offset((page - 1) * LIMIT_PER_PAGE);
 
     response.header('X-Total-Count', count['count']);
 
@@ -39,9 +42,9 @@ module.exports = {
   async update(request, response) {
     const { id } = request.params;
 
-    await connection('post').where('id', id).update(request.body);
+    await connection(POST_TABLE).where('id', id).update(request.body);
 
-    const updatedPost = await connection('post')
+    const updatedPost = await connection(POST_TABLE)
       .where('id', id)
       .select('*')
       .first();
@@ -51,14 +54,17 @@ module.exports = {
   async delete(request, response) {
     const { id } = request.params;
 
-    await connection('post').where('id', id).delete();
+    await connection(POST_TABLE).where('id', id).delete();
 
     return response.status(204).send();
   },
   async findById(request, response) {
     const { id } = request.params;
 
-    const post = await connection('post').where('id', id).select('*').first();
+    const post = await connection(POST_TABLE)
+      .where('id', id)
+      .select('*')
+      .first();
 
     return response.json(post);
   },

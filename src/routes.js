@@ -16,13 +16,13 @@ routers
           .regex(
             /\b(https?|ftp|file):\/\/[-A-Za-z0-9+&@#/%?=~_|!:,.;]*[-A-Za-z0-9+&@#/%=~_|]/
           )
-          .message('O campo avatar deve estar no formato http://'),
+          .message('O campo avatar deve estar no formato de URL'),
         urlImagemPublicacao: Joi.string()
           .required()
           .regex(
             /\b(https?|ftp|file):\/\/[-A-Za-z0-9+&@#/%?=~_|!:,.;]*[-A-Za-z0-9+&@#/%=~_|]/
           )
-          .message('O campo urlImagemPublicacao deve estar no formato http://'),
+          .message('O campo urlImagemPublicacao deve estar no formato URL'),
       }),
     }),
     PostController.create
@@ -35,6 +35,7 @@ routers
     }),
     PostController.list
   );
+
 routers
   .route('/posts/:id')
   .put(

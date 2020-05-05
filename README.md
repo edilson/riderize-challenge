@@ -27,13 +27,19 @@ docker-compose up -d
 npx knex migrate:latest
 ```
 
-5 - Vá para:  
+5 - Rode a aplicação:  
+
+```
+npm run dev
+```
+
+6 - Vá para:  
 
 ```
 http://localhost:3333/posts
 ```
 
-6 - Para rodar os testes:  
+7 - Para rodar os testes:  
 
 ```
 npm test

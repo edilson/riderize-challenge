@@ -45,7 +45,7 @@ http://localhost:3333/api/v1/posts
 npm test
 ```
 
-- Acesso ao banco de dados:  
+## Acesso ao banco de dados:  
 
 1 - Vá até:  
 

@@ -44,3 +44,21 @@ http://localhost:3333/api/v1/posts
 ```
 npm test
 ```
+
+- Acesso ao banco de dados:  
+
+1 - Vá até:  
+
+```
+http://localhost:8080
+```
+
+2 - Escolha o PostgreSQL como sistema
+
+3 - Insira as credenciais:  
+
+```
+Usuário: postgres
+Senha: postgres
+Base de dados: riderize
+```

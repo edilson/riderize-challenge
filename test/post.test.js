@@ -18,8 +18,8 @@ describe('Posts', () => {
 
     primeiroPost = await createPostHelper(
       'Edilson Silva',
-      'um link bem legal',
-      'um link massa'
+      'https://umlinkbemlegal.com.br/avatardousuario',
+      'https://umlinkmassa.com.br/imagempublicacao'
     );
   });
 
@@ -31,8 +31,9 @@ describe('Posts', () => {
     it('deve criar post', (done) => {
       let payload = {
         nomeUsuario: 'Rafael Henrique',
-        avatar: 'algum link massa',
-        urlImagemPublicacao: 'link da imagem publicada',
+        avatar: 'https://algumlinkmassa.com.br/avatardousuario',
+        urlImagemPublicacao:
+          'https://linkdaimagempublicada.com.br/imagempublicada',
       };
 
       chai
@@ -79,8 +80,8 @@ describe('Posts', () => {
     it('deve atualizar post', (done) => {
       const payload = {
         nomeUsuario: 'Maria Silva',
-        avatar: 'algum link legal',
-        urlImagemPublicacao: 'outro link legal',
+        avatar: 'http://algumlinklegal.com/avatardousuario',
+        urlImagemPublicacao: 'http://outrolinklegal.com/imagempublicacao',
       };
 
       chai

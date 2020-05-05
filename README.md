@@ -62,3 +62,7 @@ Usuário: postgres
 Senha: postgres
 Base de dados: riderize
 ```
+
+## Documentação
+
+- [HTTP API](https://github.com/SEdilson/riderize-challenge/tree/master/docs)

@@ -21,7 +21,13 @@ npm install
 docker-compose up -d
 ```
 
-4 - Vá para:  
+4 - Rode as migrações do banco:  
+
+```
+npx knex migrate:latest
+```
+
+5 - Vá para:  
 
 ```
 http://localhost:3333/posts
